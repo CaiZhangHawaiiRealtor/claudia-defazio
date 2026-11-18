@@ -108,15 +108,9 @@ body.sheet-open .bar{visibility:hidden;pointer-events:none}
   <button class="cta" type="button" onclick="openSheet(true)">Request net sheet &amp; full numbers</button>
 </header>
 <div class="wrap">
-  <div class="note"><b>How we rank.</b> Each property gets an Investor Score from 0 to 100, comparing it with everything on this page: Cash Return (Cap Rate) 35%, estimated total return 20%, monthly net cash flow 10%, gross rent multiplier (price ÷ yearly gross, lower is better) 10%, expense ratio (lower is better) 10%, 10 year appreciation 10%, price per unit (lower is better) 5%. Cash Return = yearly net income ÷ price; with all cash, cash on cash and cap rate are the same number. Est. total return = Cash Return + 10 year yearly appreciation (an estimate, not a promise). Figures assume a professional manager (20% condo-hotel, 8% apartments); switch Basis to see self managed. Check the homes you like, then press <b>Request net sheets</b>.</div>
+  <div class="note"><b>How we rank.</b> Each property gets an Investor Score from 0 to 100, comparing it with everything on this page: Cash Return (Cap Rate) 35%, estimated total return 20%, monthly net cash flow 10%, gross rent multiplier (price ÷ yearly gross, lower is better) 10%, expense ratio (lower is better) 10%, 10 year appreciation 10%, price per unit (lower is better) 5%. Cash Return = yearly net income ÷ price; with all cash, cash on cash and cap rate are the same number. Est. total return = Cash Return + 10 year yearly appreciation (an estimate, not a promise). Check the homes you like, then press <b>Request net sheets</b>.</div>
   <div class="filters">
     <div class="chips" id="chips"></div>
-    <div><label>Basis</label>
-      <select id="fBasis">
-        <option value="m">With a manager</option>
-        <option value="s">Self managed</option>
-      </select>
-    </div>
     <div><label>Financing</label>
       <select id="fFin">
         <option value="cash">All cash</option>
@@ -232,12 +226,12 @@ body.sheet-open .bar{visibility:hidden;pointer-events:none}
     <h3>What the numbers include</h3>
     <ul>
       <li>Income is an estimated long-term rent from the Oct 28, 2026 HiCentral Matrix 96814 1-bed lease pull, using a building or size band stated on each card and in Full numbers.</li>
-      <li>Costs taken out: vacancy 5% (assumption); HOA; property tax as shown on the listing source; HO-6 insurance of $45 per month (assumption, from a published Hawaii condo average of $540 per year as of Sep 30, 2026 on insurancequotes.com); and a professional manager of 20% of collected rent for condo-hotel units or 8% for regular apartments, or none when Basis is self managed.</li>
+      <li>Costs taken out: vacancy 5% (assumption); HOA; property tax as shown on the listing source; and HO-6 insurance of $45 per month (assumption, from a published Hawaii condo average of $540 per year as of Sep 30, 2026 on insurancequotes.com).</li>
       <li>Closing costs, reserves, special assessments, utilities not included in HOA, and furniture replacement are not in the cash-in or expense figures.</li>
       <li>Cash Return (Cap Rate) = yearly net income ÷ price. With all cash there is no loan, so cash-on-cash and cap rate are one number. Closing costs are not in it. For the down-payment view, monthly cash flow is after principal and interest at the rate in Filters, and cash-on-cash is annual cash flow ÷ the down payment. The default rate is the Freddie Mac 30-year fixed average of 7.11% as of Nov 12, 2026 (PMMS).</li>
       <li>10-year appreciation uses sold data where it could be sourced, and is otherwise labeled as an assumption. Ala Moana Hotel 1-beds: about 2.8% per year from a thin same-plan sample (#2226 sold $310,000 on Jun 30, 2016; 2026 Matrix solds #907 at $375,000 and #1207 at $445,000). Kapiolani Manor 1-beds: about −1.9% per year from a thin public sample (#909 sold $320,000 on Mar 11, 2016; 2026 public 1-bed solds around $240,000–$270,000). Summer Palace and Atkinson Plaza: about 2.5% per year from the Honolulu County condo median of $390,000 in 2016 (Hawaii DBEDT Data Book) versus the Oahu condo median of $499,000 in October 2026 (Honolulu Board of REALTORS Monthly Statistical Report). A building median for 2016 versus 2026 was not in the HiCentral pull, which only went back to October 2024 for hotel solds. Past appreciation does not predict future prices.</li>
       <li>*Est. total return = Cash Return + 10-year yearly appreciation. It is an estimate for comparing properties, not a forecast or a promise.</li>
-      <li>Investor Score: each metric is ranked against the other properties on this page (0 = weakest, 100 = strongest) and weighted: Cash Return 35, est. total return 20, monthly net cash flow 10 (using the down payment and rate in Filters), gross rent multiplier 10 (lower better), expense ratio 10 (lower better, includes the manager; yearly operating expenses ÷ yearly gross rent; vacancy is applied separately in net income), 10-year appreciation 10, price per unit 5 (lower better; each listing is one home). The self-managed view has its own score.</li>
+      <li>Investor Score: each metric is ranked against the other properties on this page (0 = weakest, 100 = strongest) and weighted: Cash Return 35, est. total return 20, monthly net cash flow 10 (using the down payment and rate in Filters), gross rent multiplier 10 (lower better), expense ratio 10 (lower better; yearly operating expenses ÷ yearly gross rent; vacancy is applied separately in net income), 10-year appreciation 10, price per unit 5 (lower better; each listing is one home).</li>
       <li>Not included: furnishing or renovation, special assessments, depreciation or tax benefits. This is not tax, legal, or lender advice, and it is not a guarantee of income, expenses, or future value.</li>
     </ul>
     <h3>Which listings are here</h3>
@@ -289,14 +283,13 @@ function pmt(loan, annual){
 function pickRent(x, band){ return band==="low"?x.rentLow:band==="high"?x.rentHigh:x.rentMid; }
 function parseRate(){ const n=Number($("fRate").value); return Number.isFinite(n)&&n>=0&&n<30?n:DEFAULT_RATE; }
 function parseDown(){ const n=Number($("fDown").value); if(!Number.isFinite(n)) return 0.2; return n>1?Math.min(n,100)/100:Math.min(Math.max(n,0),1); }
-function analyze(x, rate, downPct, band, managed){
+function analyze(x, rate, downPct, band){
   const rent=pickRent(x,band);
   const down=x.price*Math.min(Math.max(downPct,0),1);
   const loan=x.price-down;
   const pi=pmt(loan, rate/100);
-  const mgmtRate=managed?(x.hotel?0.2:0.08):0;
-  const gpi=rent*12, egi=gpi*(1-VAC), mgmt=egi*mgmtRate;
-  const opex=(x.hoa+x.tax+INS)*12+mgmt;
+  const gpi=rent*12, egi=gpi*(1-VAC);
+  const opex=(x.hoa+x.tax+INS)*12;
   const noi=egi-opex;
   const cap=x.price>0?noi/x.price:0;
   const cfMo=noi/12-pi;
@@ -304,8 +297,8 @@ function analyze(x, rate, downPct, band, managed){
   const grm=gpi>0?x.price/gpi:0;
   const exp=gpi>0?opex/gpi:0;
   const tot=cap+x.appr;
-  const carry=pi+x.hoa+x.tax+INS+mgmt/12;
-  return {rent,down,loan,pi,mgmtMo:mgmt/12,gpi,egi,opex,noi,cap,cfMo,coc,grm,exp,tot,carry};
+  const carry=pi+x.hoa+x.tax+INS;
+  return {rent,down,loan,pi,gpi,egi,opex,noi,cap,cfMo,coc,grm,exp,tot,carry};
 }
 function norm(vals, invert, v){
   const lo=Math.min(...vals), hi=Math.max(...vals);
@@ -313,8 +306,8 @@ function norm(vals, invert, v){
   const n=(v-lo)/(hi-lo);
   return invert?1-n:n;
 }
-function scoreAll(rate, downPct, band, managed){
-  const raw=D.map(x=>({x,m:analyze(x,rate,downPct,band,managed)}));
+function scoreAll(rate, downPct, band){
+  const raw=D.map(x=>({x,m:analyze(x,rate,downPct,band)}));
   const caps=raw.map(r=>r.m.cap), tots=raw.map(r=>r.m.tot), cfs=raw.map(r=>r.m.cfMo);
   const grms=raw.map(r=>r.m.grm), exps=raw.map(r=>r.m.exp), apprs=D.map(x=>x.appr), prices=D.map(x=>x.price);
   const out={};
@@ -391,7 +384,6 @@ function card(x, M, rank, cash, downPct){
       </div>
       <div class="mini">
         <span>Gross ${money(m.gpi)}/yr · Est. rent ${money(m.rent)}/mo <span class="tag${x.hotel?" m":""}">${x.hotel?"Area rent comps":"Building lease comps"}</span></span>
-        <span>${$("fBasis").value==="s"?"Self managed":"With manager"}</span>
         <span>Fee simple · ${tagFor(x)}</span>
       </div>
       <label class="pick"><input type="checkbox" data-mls="${x.mls}" ${sel.has(x.mls)?"checked":""}> Request net sheet for this home</label>
@@ -404,11 +396,11 @@ function card(x, M, rank, cash, downPct){
 }
 
 function render(){
-  const rate=parseRate(), downPct=parseDown(), band=$("fRent").value, managed=$("fBasis").value==="m";
+  const rate=parseRate(), downPct=parseDown(), band=$("fRent").value;
   const cash=$("fFin").value==="cash", so=$("fSort").value, hoa=+$("fHoa").value, ocean=$("fView").value==="ocean";
   const loanOpt=$("fFin").querySelector('option[value="loan"]');
   if(loanOpt) loanOpt.textContent=Math.round(downPct*100)+"% down";
-  const M=scoreAll(rate, downPct, band, managed);
+  const M=scoreAll(rate, downPct, band);
   let L=D.filter(x=>(catOn==="all"||x.section===catOn)&&x.hoa<=hoa&&(!ocean||x.ocean));
   L=sortList(L,M,so);
   const best=Math.max(...D.map(x=>M[x.mls].cap));
@@ -438,7 +430,7 @@ function render(){
     </tr>`;
   }).join("");
   $("compare").innerHTML=`<table><thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table>`;
-  window._M=M; window._inputs={rate,downPct,band,managed,cash};
+  window._M=M; window._inputs={rate,downPct,band,cash};
 }
 
 $("grid").addEventListener("change", e=>{
@@ -532,7 +524,6 @@ function openNums(mls){
         <tr><td>HOA / mo</td><td class="amt">${money(x.hoa)}</td></tr>
         <tr><td>Property tax / mo</td><td class="amt">${money(x.tax)}</td></tr>
         <tr><td>Insurance / mo (assumption)</td><td class="amt">${money(INS)}</td></tr>
-        <tr><td>Management / mo</td><td class="amt">${money(m.mgmtMo)}</td></tr>
         <tr><td>Total monthly cost (before vacancy)</td><td class="amt">${money(m.carry)}</td></tr>
         <tr><td>Estimated rent / mo</td><td class="amt">${money(m.rent)}</td></tr>
         <tr><td>Vacancy allowance (5% of rent)</td><td class="amt">${money(m.rent*VAC)}</td></tr>
@@ -542,7 +533,7 @@ function openNums(mls){
     </table>
     </div><div>
     <h4>All cash</h4>
-    <p class="fine">Cash in is the asking price only. Closing costs are not included. Yearly net income is after vacancy, HOA, tax, insurance, and management.</p>
+    <p class="fine">Cash in is the asking price only. Closing costs are not included. Yearly net income is after vacancy, HOA, tax, and insurance.</p>
     <table>
       <thead><tr><th>Item</th><th>Amount</th></tr></thead>
       <tbody>
