@@ -91,6 +91,10 @@ h2.block{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-siz
 
 .nums .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:700px){.nums .cols{grid-template-columns:1fr}}
+.card.cancelled{background:#F7F4EE}
+.rk.stop{background:#6E7480}
+.quote{font-size:13px;color:#3c414b;margin:0}
+.strnote{font-size:14px;color:#4A4F58;margin:0 0 16px}
 .sheet a{color:var(--navy);font-weight:600}
 body.has-sel{padding-bottom:76px}
 body.sheet-open .bar{visibility:hidden;pointer-events:none}
@@ -100,15 +104,17 @@ body.sheet-open .bar{visibility:hidden;pointer-events:none}
 <body>
 <header>
   <img class="logo" src="assets/talk-logo-white.png" alt="Talk Realty">
-  <div class="eb">Prepared for Claudia DeFazio · Talk Realty · November 18, 2026</div>
+  <div class="eb">Prepared for Claudia DeFazio · Talk Realty · Data as of November 21, 2026</div>
   <h1>Ala Moana condos, ranked for rent return</h1>
-  <div class="sub">Fee-simple Ala Moana area condos in a $230,000–$450,000 budget, modeled for 20% down and all cash, and ranked the way investors weigh a deal. Lower HOA and tax, ocean view, and rent return are the focus, with Ala Moana Hotel #1526 as the reference home.</div>
+  <div class="sub">Fee-simple Ala Moana area condos in a $230,000–$450,000 budget, modeled for 20% down and all cash, and ranked the way investors weigh a deal. A Waikiki section adds fee-simple studios zoned for legal short-term rental. Lower HOA and tax, ocean view, and rent return are the focus, with Ala Moana Hotel #1526 as the reference home.</div>
   <div class="rule"></div>
   <div class="stats" id="stats"></div>
   <button class="cta" type="button" onclick="openSheet(true)">Request net sheet &amp; full numbers</button>
 </header>
 <div class="wrap">
-  <div class="note"><b>How we rank.</b> Each property gets an Investor Score from 0 to 100, comparing it with everything on this page: Cash Return (Cap Rate) 35%, estimated total return 20%, monthly net cash flow 10%, gross rent multiplier (price ÷ yearly gross, lower is better) 10%, expense ratio (lower is better) 10%, 10 year appreciation 10%, price per unit (lower is better) 5%. Cash Return = yearly net income ÷ price; with all cash, cash on cash and cap rate are the same number. Est. total return = Cash Return + 10 year yearly appreciation (an estimate, not a promise). Check the homes you like, then press <b>Request net sheets</b>.</div>
+  <div class="note"><b>How we rank.</b> Each active property gets an Investor Score from 0 to 100, comparing it with the other active homes on this page: Cash Return (Cap Rate) 35%, estimated total return 20%, monthly net cash flow 10%, gross rent multiplier (price ÷ yearly gross, lower is better) 10%, expense ratio (lower is better) 10%, 10 year appreciation 10%, price per unit (lower is better) 5%. Cash Return = yearly net income ÷ price; with all cash, cash on cash and cap rate are the same number. Est. total return = Cash Return + 10 year yearly appreciation (an estimate, not a promise). Kapiolani Manor #2407 is shown as Cancelled and is not scored. Check the homes you like, then press <b>Request net sheets</b>.</div>
+  <h2 class="block" id="waikiki">Waikiki: legal short-term rental (Airbnb) condos with views</h2>
+  <p class="strnote">Eight fee-simple Waikiki studios, each zoned X6 Resort Mixed Use Precinct. The score uses a studio gross of $32,800 a year, the published Waikiki Beachfront studio average (BNBCalc, 358 listings, trailing 12 months as of Nov 3, 2026). Hawaii DBEDT’s Waikiki all-unit year-to-date rate through September 2026 is an ADR of $351.44 and occupancy of 63.2%. That blended rate is not applied to these studios, because the DBEDT report does not publish a studio rate. No 2-bedroom fee-simple home is on this page. Short-term rental rules are set by the City and County of Honolulu and by each building’s own rules. Confirm those rules with the AOAO before purchase.</p>
   <div class="filters">
     <div class="chips" id="chips"></div>
     <div><label>Financing</label>
@@ -225,27 +231,31 @@ body.sheet-open .bar{visibility:hidden;pointer-events:none}
     <p style="color:var(--mute);margin:0">For a closer look. The cards above are the summary.</p>
     <h3>What the numbers include</h3>
     <ul>
-      <li>Income is an estimated long-term rent from the Oct 28, 2026 HiCentral Matrix 96814 1-bed lease pull, using a building or size band stated on each card and in Full numbers.</li>
-      <li>Costs taken out: vacancy 5% (assumption); HOA; property tax as shown on the listing source; and HO-6 insurance of $45 per month (assumption, from a published Hawaii condo average of $540 per year as of Sep 30, 2026 on insurancequotes.com).</li>
+      <li>Long-term income is an estimated rent from the Oct 28, 2026 HiCentral Matrix 96814 1-bed lease pull, using a building or size band stated on each card and in Full numbers. The Rent point filter changes only those long-term bands.</li>
+      <li>Long-term costs taken out: vacancy 5% (assumption); HOA; property tax as shown on the listing source; and HO-6 insurance of $45 per month (assumption, from a published Hawaii condo average of $540 per year as of Sep 30, 2026 on insurancequotes.com).</li>
+      <li>Short-term gross used for the score, for every Waikiki studio, is $32,800 a year. That is the average yearly booking revenue for a Waikiki Beachfront studio on BNBCalc (358 listings, trailing 12 months as of Nov 3, 2026, including cleaning fees, before operating costs and taxes): <a href="https://www.bnbcalc.com/markets/us/oahu-hi/neighborhoods/waikiki-beach">bnbcalc.com/markets/us/oahu-hi/neighborhoods/waikiki-beach</a>. The same table shows 1-bedroom average yearly revenue of $41,428 and 2-bedroom average yearly revenue of $86,325. This page uses only the studio figure. No 2-bedroom fee-simple home is listed.</li>
+      <li>Hawaii DBEDT, Hawaiʻi Vacation Rental Performance Report, September 2026, Figure 2, Waikiki year-to-date January–September 2026: ADR $351.44 and occupancy 63.2%. Figure 1, September 2026 alone: ADR $335.22 and occupancy 59.8%. Source: <a href="https://files.hawaii.gov/dbedt/economic/tourism/vacation-rental/hawaii-vacation-rental-performance-2026-09.pdf">files.hawaii.gov/dbedt/.../hawaii-vacation-rental-performance-2026-09.pdf</a>. The report’s ADR is a Total Rate and covers every vacation-rental size. It does not publish a studio rate, so that all-unit ADR is not the gross used on these cards.</li>
+      <li>Short-term costs taken out of the $32,800 gross: Hawaii general excise tax 4.712% (Oahu), state transient accommodations tax 10.25%, and Oahu transient accommodations tax 3%; cleaning and supplies of $200 a month (assumption for a furnished studio); utilities and internet of $180 a month (assumption for a furnished studio); HOA; property tax as shown on the listing; and HO-6 insurance of $50 a month (assumption for this section). Vacancy is already inside the $32,800 average, so it is not deducted again. Waikiki Grand #917 also shows the seller’s stated figure of $30,000 a year gross. The score uses the $32,800 public studio figure.</li>
       <li>Closing costs, reserves, special assessments, utilities not included in HOA, and furniture replacement are not in the cash-in or expense figures.</li>
       <li>Cash Return (Cap Rate) = yearly net income ÷ price. With all cash there is no loan, so cash-on-cash and cap rate are one number. Closing costs are not in it. For the down-payment view, monthly cash flow is after principal and interest at the rate in Filters, and cash-on-cash is annual cash flow ÷ the down payment. The default rate is the Freddie Mac 30-year fixed average of 7.11% as of Nov 12, 2026 (PMMS).</li>
       <li>10-year appreciation uses sold data where it could be sourced, and is otherwise labeled as an assumption. Ala Moana Hotel 1-beds: about 2.8% per year from a thin same-plan sample (#2226 sold $310,000 on Jun 30, 2016; 2026 Matrix solds #907 at $375,000 and #1207 at $445,000). Kapiolani Manor 1-beds: about −1.9% per year from a thin public sample (#909 sold $320,000 on Mar 11, 2016; 2026 public 1-bed solds around $240,000–$270,000). Summer Palace and Atkinson Plaza: about 2.5% per year from the Honolulu County condo median of $390,000 in 2016 (Hawaii DBEDT Data Book) versus the Oahu condo median of $499,000 in October 2026 (Honolulu Board of REALTORS Monthly Statistical Report). A building median for 2016 versus 2026 was not in the HiCentral pull, which only went back to October 2024 for hotel solds. Past appreciation does not predict future prices.</li>
       <li>*Est. total return = Cash Return + 10-year yearly appreciation. It is an estimate for comparing properties, not a forecast or a promise.</li>
-      <li>Investor Score: each metric is ranked against the other properties on this page (0 = weakest, 100 = strongest) and weighted: Cash Return 35, est. total return 20, monthly net cash flow 10 (using the down payment and rate in Filters), gross rent multiplier 10 (lower better), expense ratio 10 (lower better; yearly operating expenses ÷ yearly gross rent; vacancy is applied separately in net income), 10-year appreciation 10, price per unit 5 (lower better; each listing is one home).</li>
+      <li>Investor Score: each metric is ranked against the other active properties on this page (0 = weakest, 100 = strongest) and weighted: Cash Return 35, est. total return 20, monthly net cash flow 10 (using the down payment and rate in Filters), gross rent multiplier 10 (lower better), expense ratio 10 (lower better; yearly operating expenses ÷ yearly gross; on a long-term home, vacancy is applied separately in net income; on a short-term home, vacancy is already in the $32,800 gross), 10-year appreciation 10, price per unit 5 (lower better; each listing is one home). Kapiolani Manor #2407 is Cancelled and is left out of the score.</li>
       <li>Not included: furnishing or renovation, special assessments, depreciation or tax benefits. This is not tax, legal, or lender advice, and it is not a guarantee of income, expenses, or future value.</li>
     </ul>
     <h3>Which listings are here</h3>
     <ul>
-      <li>Comparable to #1526: the three active same-building 1-bedrooms close to #1526 in size (503 sq ft plus lanai), price ($340,000–$450,000), and fees, from the Oct 28, 2026 HiCentral Matrix pull, with status and price checked on public sites in November 2026 (Hawaii time). Two similar 1-beds at $499,000 were left off because they sit above the $450,000 comparable band and above Claudia’s budget.</li>
-      <li>Recommended near Ala Moana and Waikiki: ten fee-simple 1-bedrooms at Kapiolani Manor, Summer Palace, and Atkinson Plaza in the $230,000–$450,000 budget, chosen for lower HOA plus tax, rent return, and ocean view where available. These buildings were not in the Matrix sale-side export, which covered Ala Moana Hotel only; asking prices, HOA, and tax come from public listing pages checked on Nov 18, 2026 (Hawaii time). The Honolulu computer was online that day, but Matrix was not re-opened this session.</li>
-      <li>Leasehold listings were not added. Everything shown is fee simple.</li>
+      <li>Comparable to #1526: the three active same-building 1-bedrooms close to #1526 in size (503 sq ft plus lanai), price ($340,000–$450,000), and fees. Status and price were read from HiCentral Matrix on Nov 21, 2026 (Hawaii time). Two similar 1-beds at $499,000 were left off because they sit above the $450,000 comparable band and above Claudia’s budget.</li>
+      <li>Recommended near Ala Moana: nine active fee-simple 1-bedrooms at Kapiolani Manor, Summer Palace, and Atkinson Plaza, plus Kapiolani Manor #2407, which HiCentral Matrix showed as Cancelled on Nov 21, 2026 (Hawaii time). Asking prices, HOA, and tax are unchanged from the prior page. #2407 stays visible and is not scored.</li>
+      <li>Waikiki short-term: eight fee-simple studios in ZIP 96815, list price $230,000–$450,000, zoning X6 Resort Mixed Use Precinct, from the Nov 21, 2026 HiCentral Matrix pull. This page is fee simple only. Leasehold homes are not included.</li>
     </ul>
     <h3>Before an offer</h3>
     <ul>
       <li>Confirm current status, price, HOA, and tax on the official listing, and ask for building documents and a rent history.</li>
+      <li>Short-term rental rules are set by the City and County of Honolulu and by each building’s own rules. Confirm those rules with the AOAO before purchase.</li>
       <li>Hotel-program income at Ala Moana Hotel can differ from the long-term rent band, and long-term leasing of a hotel-program unit may be limited.</li>
       <li>Cards use market-rent midpoints from the lease comps above unless a card’s Full numbers say otherwise. Atkinson Plaza #1006 is larger than the 550–587 sq ft lease comps in that building, so the $2,400–$2,600 band may be conservative. Summer Palace #2006 has a tenant through the end of April 2027; the current lease amount is not in the source data, so market rent is used.</li>
-      <li>Information is from HiCentral Matrix (pulled Oct 28, 2026) and public listing sites (checked Nov 18, 2026, Hawaii time) and is deemed reliable but not guaranteed. First photos were downloaded from public OahuRE listing photo files for each MLS number.</li>
+      <li>Information is from HiCentral Matrix (pulled Nov 21, 2026, Hawaii time) and is deemed reliable but not guaranteed. First photos were downloaded from public OahuRE listing photo files for each MLS number.</li>
     </ul>
     <p>Equal housing opportunity.</p>
   </div>
@@ -254,20 +264,30 @@ body.sheet-open .bar{visibility:hidden;pointer-events:none}
 
 <script>
 const INS = 45, VAC = 0.05, DEFAULT_RATE = 7.11, SUBJECT = "202615318";
+const STR_GROSS = 32800, STR_INS = 50, STR_CLEAN = 200, STR_UTIL = 180;
+const STR_GET = 0.04712, STR_TAT = 0.1025, STR_OTAT = 0.03, STR_TAX = STR_GET+STR_TAT+STR_OTAT;
 const D = [
-  {mls:"202615318",section:"comp",unit:"#1526",building:"Ala Moana Hotel Condo",name:"Ala Moana Hotel #1526",addr:"410 Atkinson Dr #1526, Honolulu, HI 96814",href:"https://hicentral.com/202615318",status:"Active",statusNote:"Public sites last showed Active at $390,000 on Nov 15, 2026 (Hawaii time). HiCentral Matrix, Oct 28, 2026, also showed Active at $390,000.",price:390000,beds:1,baths:1,sf:503,lanai:56,floor:"15",view:"City, Mountain, Ocean",ocean:true,hoa:1871,tax:358,parking:"None",tenure:"Fee simple",yearBuilt:1970,remodeled:"2025",condition:"Excellent",furnished:"Full",occupant:"Hotel rental program",rentLow:2200,rentMid:2350,rentHigh:2500,rentNote:"No in-building leases in the Oct 28, 2026 Matrix pull. Band is from 96814 older-building 1-beds of similar size. Hotel-program income can differ, and long-term leasing may be limited.",hotel:true,appr:0.0284,apprNote:"Estimate from a thin same-plan 1-bed sample, not a building median: #2226 sold for $310,000 on Jun 30, 2016; 2026 Matrix solds #907 at $375,000 and #1207 at $445,000 (midpoint $410,000). About 2.8% per year.",isSubject:true},
-  {mls:"202612114",section:"comp",unit:"#607",building:"Ala Moana Hotel Condo",name:"Ala Moana Hotel #607",addr:"410 Atkinson Dr #607, Honolulu, HI 96814",href:"https://hicentral.com/202612114",status:"Active",statusNote:"Public sites last showed Active at $398,000 on Nov 18, 2026 (Hawaii time). HiCentral Matrix, Oct 28, 2026, also showed Active at $398,000.",price:398000,beds:1,baths:1,sf:503,lanai:56,floor:"6",view:"Marina/Canal, Ocean, Sunset",ocean:true,hoa:1871,tax:366.96,parking:"None",tenure:"Fee simple",yearBuilt:1970,remodeled:"2025",condition:"Above Average",furnished:"Full",occupant:"Hotel rental program",rentLow:2200,rentMid:2350,rentHigh:2500,rentNote:"Same $2,200–$2,500 area-comp band used for #1526. Hotel-program income can differ, and long-term leasing may be limited.",hotel:true,appr:0.0284,apprNote:"Same thin same-plan 1-bed estimate used for other Ala Moana Hotel 1-beds on this page (about 2.8% per year)."},
-  {mls:"202516433",section:"comp",unit:"#2226",building:"Ala Moana Hotel Condo",name:"Ala Moana Hotel #2226",addr:"410 Atkinson Dr #2226, Honolulu, HI 96814",href:"https://hicentral.com/202516433",status:"Active",statusNote:"Public sites last showed Active at $449,000 on Nov 11, 2026 (Hawaii time). HiCentral Matrix, Oct 28, 2026, also showed Active at $449,000.",price:449000,beds:1,baths:1,sf:503,lanai:56,floor:"22",view:"City, Mountain (public remarks also mention peekaboo ocean and Diamond Head)",ocean:false,hoa:1871,tax:475.96,parking:"None",tenure:"Fee simple",yearBuilt:1970,remodeled:"2025",condition:"Excellent",furnished:"Full",occupant:"Hotel rental program",rentLow:2200,rentMid:2350,rentHigh:2500,rentNote:"Same $2,200–$2,500 area-comp band used for #1526. Hotel-program income can differ, and long-term leasing may be limited.",hotel:true,appr:0.0284,apprNote:"This unit sold for $310,000 on Jun 30, 2016. The 2.8% yearly figure is the thin same-plan 1-bed estimate, not this asking price."},
-  {mls:"202616078",section:"rec",unit:"#1907",building:"Kapiolani Manor",name:"Kapiolani Manor #1907",addr:"1655 Makaloa St #1907, Honolulu, HI 96814",href:"https://hicentral.com/202616078",status:"Active",statusNote:"Public listing sites showed Active at $274,900 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export, which covered Ala Moana Hotel only.",price:274900,beds:1,baths:1,sf:484,view:"City, Diamond Head, Mountain, Ocean",ocean:true,hoa:905,tax:104,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1970,remodeled:"2025",condition:"Above Average",rentLow:1800,rentMid:2000,rentHigh:2300,rentNote:"Kapiolani Manor 1-bed leases in the Oct 28, 2026 Matrix pull: last 12 months n=10, median about $1,975, range $1,800–$2,300. Midpoint used: $2,000.",hotel:false,appr:-0.0187,apprNote:"Assumption from a thin public sample, not a HiCentral building median: #909 sold for $320,000 on Mar 11, 2016; 2026 public 1-bed solds clustered around $240,000–$270,000 (midpoint $265,000). About −1.9% per year."},
-  {mls:"202611854",section:"rec",unit:"#909",building:"Kapiolani Manor",name:"Kapiolani Manor #909",addr:"1655 Makaloa St #909, Honolulu, HI 96814",href:"https://hicentral.com/202611854",status:"Active",statusNote:"Public listing sites showed Active at $300,000 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export.",price:300000,beds:1,baths:1,sf:484,view:"City, Diamond Head, Mountain, Ocean",ocean:true,hoa:905,tax:97,parking:"Covered (1), secured entry",tenure:"Fee simple",yearBuilt:1970,condition:"Average",rentLow:1800,rentMid:2000,rentHigh:2300,rentNote:"Same Kapiolani Manor 1-bed lease band: $1,800–$2,300, midpoint $2,000.",hotel:false,appr:-0.0187,apprNote:"This unit sold for $320,000 on Mar 11, 2016. The −1.9% yearly figure is the thin building sample, not this asking price."},
-  {mls:"202619447",section:"rec",unit:"#2407",building:"Kapiolani Manor",name:"Kapiolani Manor #2407",addr:"1655 Makaloa St #2407, Honolulu, HI 96814",href:"https://hicentral.com/202619447",status:"Active",statusNote:"Public listing sites showed Active at $299,000 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export.",price:299000,beds:1,baths:1,sf:484,view:"Marina/Canal, Ocean",ocean:true,hoa:1000,tax:94,parking:"Covered (1)",tenure:"Fee simple",yearBuilt:1970,remodeled:"2021",condition:"Above Average",rentLow:1800,rentMid:2000,rentHigh:2300,rentNote:"Same Kapiolani Manor 1-bed lease band: $1,800–$2,300, midpoint $2,000.",hotel:false,appr:-0.0187,apprNote:"Same thin Kapiolani Manor 1-bed sample used for other Manor units on this page (about −1.9% per year)."},
-  {mls:"202526055",section:"rec",unit:"#1616",building:"Kapiolani Manor",name:"Kapiolani Manor #1616",addr:"1655 Makaloa St #1616, Honolulu, HI 96814",href:"https://hicentral.com/202526055",status:"Active",statusNote:"Public listing sites showed Active at $349,000 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export.",price:349000,beds:1,baths:1,sf:484,view:"City",ocean:false,hoa:905,tax:104,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1970,remodeled:"2022",condition:"Above Average",rentLow:1800,rentMid:2000,rentHigh:2300,rentNote:"Same Kapiolani Manor 1-bed lease band: $1,800–$2,300, midpoint $2,000.",hotel:false,appr:-0.0187,apprNote:"Same thin Kapiolani Manor 1-bed sample used for other Manor units on this page (about −1.9% per year)."},
-  {mls:"202619237",section:"rec",unit:"#1006",building:"Summer Palace",name:"Summer Palace #1006",addr:"1848 Kahakai Dr #1006, Honolulu, HI 96814",href:"https://hicentral.com/202619237",status:"Active",statusNote:"Public listing sites showed Active at $370,000 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export.",price:370000,beds:1,baths:1,sf:542,view:"City, Marina/Canal, Ocean, Sunrise",ocean:true,hoa:1081,tax:102,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1976,condition:"Excellent",rentLow:2200,rentMid:2300,rentHigh:2400,rentNote:"Summer Palace and 1848 Kahakai 1-beds of similar size in the Matrix pull leased around $2,200–$2,400 in 2025–2026. Midpoint used: $2,300.",hotel:false,appr:0.0249,apprNote:"Assumption, not a building median: Honolulu County condo median $390,000 in 2016 (Hawaii DBEDT Data Book) vs Oahu condo median $499,000 in October 2026 (Honolulu Board of REALTORS Monthly Statistical Report). About 2.5% per year."},
-  {mls:"202619890",section:"rec",unit:"#1603",building:"Summer Palace",name:"Summer Palace #1603",addr:"1848 Kahakai Dr #1603, Honolulu, HI 96814",href:"https://hicentral.com/202619890",status:"Active",statusNote:"Public listing sites showed Active at $370,000 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export.",price:370000,beds:1,baths:1,sf:547,view:"City, Marina/Canal, Mountain, Ocean, Sunrise",ocean:true,hoa:1096,tax:104,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1976,remodeled:"2020",condition:"Above Average",rentLow:2200,rentMid:2300,rentHigh:2400,rentNote:"Same Summer Palace similar-size lease band: $2,200–$2,400, midpoint $2,300.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Summer Palace and Atkinson Plaza units on this page (about 2.5% per year)."},
-  {mls:"202608596",section:"rec",unit:"#2006",building:"Summer Palace",name:"Summer Palace #2006",addr:"1848 Kahakai Dr #2006, Honolulu, HI 96814",href:"https://hicentral.com/202608596",status:"Active",statusNote:"Public listing sites showed Active at $330,000 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export.",price:330000,beds:1,baths:1,sf:542,view:"Marina/Canal",ocean:false,hoa:1087,tax:142,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1976,condition:"Average",rentLow:2200,rentMid:2300,rentHigh:2400,rentNote:"Same Summer Palace similar-size lease band: $2,200–$2,400, midpoint $2,300. Public remarks mention a tenant through the end of April 2027; the current lease amount is not in the source data, so market rent is used.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Summer Palace units on this page (about 2.5% per year).",extra:"Public remarks state a tenant is in place through the end of April 2027."},
-  {mls:"202618745",section:"rec",unit:"#708",building:"Summer Palace",name:"Summer Palace #708",addr:"1848 Kahakai Dr #708, Honolulu, HI 96814",href:"https://hicentral.com/202618745",status:"Active",statusNote:"Public listing sites showed Active at $355,000 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export.",price:355000,beds:1,baths:1,sf:554,view:"Garden, Marina/Canal",ocean:false,hoa:1109,tax:143,parking:"Assigned, open (1)",tenure:"Fee simple",yearBuilt:1976,condition:"Above Average",rentLow:2200,rentMid:2300,rentHigh:2400,rentNote:"Same Summer Palace similar-size lease band: $2,200–$2,400, midpoint $2,300.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Summer Palace units on this page (about 2.5% per year)."},
-  {mls:"202607633",section:"rec",unit:"#1604",building:"Atkinson Plaza",name:"Atkinson Plaza #1604",addr:"475 Atkinson Dr #1604, Honolulu, HI 96814",href:"https://hicentral.com/202607633",status:"Active",statusNote:"Public listing sites showed Active at $420,000 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export.",price:420000,beds:1,baths:1,sf:583,view:"City, Ocean",ocean:true,hoa:1293,tax:113,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1979,condition:"Excellent",rentLow:2400,rentMid:2500,rentHigh:2600,rentNote:"Atkinson Plaza / 475 Atkinson 1-bed leases in the Matrix pull were $2,400–$2,600 in 2026 (about 550–587 sq ft). Midpoint used: $2,500.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Atkinson Plaza and Summer Palace units on this page (about 2.5% per year)."},
-  {mls:"202605328",section:"rec",unit:"#1006",building:"Atkinson Plaza",name:"Atkinson Plaza #1006",addr:"475 Atkinson Dr #1006, Honolulu, HI 96814",href:"https://hicentral.com/202605328",status:"Active",statusNote:"Public listing sites showed Active at $288,000 on Nov 18, 2026 (Hawaii time). This building was not in the Oct 28, 2026 Matrix sale-side export.",price:288000,beds:1,baths:1,sf:768,view:"City, Marina/Canal, Ocean",ocean:true,hoa:1665,tax:124,parking:"Assigned, covered (1) and open (1)",tenure:"Fee simple",yearBuilt:1979,condition:"Above Average",rentLow:2400,rentMid:2500,rentHigh:2600,rentNote:"This unit is larger than the 550–587 sq ft Atkinson Plaza 1-bed leases ($2,400–$2,600). The same band is used and may be conservative. A higher rent is not assumed because no 768 sq ft lease was in the pull.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Atkinson Plaza units on this page (about 2.5% per year)."}
+  {mls:"202615318",section:"comp",unit:"#1526",building:"Ala Moana Hotel Condo",name:"Ala Moana Hotel #1526",addr:"410 Atkinson Dr #1526, Honolulu, HI 96814",href:"https://hicentral.com/202615318",status:"Active",statusNote:"HiCentral Matrix showed Active at $390,000 on Nov 21, 2026 (Hawaii time).",price:390000,beds:1,baths:1,sf:503,lanai:56,floor:"15",view:"City, Mountain, Ocean",ocean:true,hoa:1871,tax:358,parking:"None",tenure:"Fee simple",yearBuilt:1970,remodeled:"2025",condition:"Excellent",furnished:"Full",occupant:"Hotel rental program",rentLow:2200,rentMid:2350,rentHigh:2500,rentNote:"No in-building leases in the Oct 28, 2026 Matrix pull. Band is from 96814 older-building 1-beds of similar size. Hotel-program income can differ, and long-term leasing may be limited.",hotel:true,appr:0.0284,apprNote:"Estimate from a thin same-plan 1-bed sample, not a building median: #2226 sold for $310,000 on Jun 30, 2016; 2026 Matrix solds #907 at $375,000 and #1207 at $445,000 (midpoint $410,000). About 2.8% per year.",isSubject:true},
+  {mls:"202612114",section:"comp",unit:"#607",building:"Ala Moana Hotel Condo",name:"Ala Moana Hotel #607",addr:"410 Atkinson Dr #607, Honolulu, HI 96814",href:"https://hicentral.com/202612114",status:"Active",statusNote:"HiCentral Matrix showed Active at $398,000 on Nov 21, 2026 (Hawaii time).",price:398000,beds:1,baths:1,sf:503,lanai:56,floor:"6",view:"Marina/Canal, Ocean, Sunset",ocean:true,hoa:1871,tax:366.96,parking:"None",tenure:"Fee simple",yearBuilt:1970,remodeled:"2025",condition:"Above Average",furnished:"Full",occupant:"Hotel rental program",rentLow:2200,rentMid:2350,rentHigh:2500,rentNote:"Same $2,200–$2,500 area-comp band used for #1526. Hotel-program income can differ, and long-term leasing may be limited.",hotel:true,appr:0.0284,apprNote:"Same thin same-plan 1-bed estimate used for other Ala Moana Hotel 1-beds on this page (about 2.8% per year)."},
+  {mls:"202516433",section:"comp",unit:"#2226",building:"Ala Moana Hotel Condo",name:"Ala Moana Hotel #2226",addr:"410 Atkinson Dr #2226, Honolulu, HI 96814",href:"https://hicentral.com/202516433",status:"Active",statusNote:"HiCentral Matrix showed Active at $449,000 on Nov 21, 2026 (Hawaii time).",price:449000,beds:1,baths:1,sf:503,lanai:56,floor:"22",view:"City, Mountain (public remarks also mention peekaboo ocean and Diamond Head)",ocean:false,hoa:1871,tax:475.96,parking:"None",tenure:"Fee simple",yearBuilt:1970,remodeled:"2025",condition:"Excellent",furnished:"Full",occupant:"Hotel rental program",rentLow:2200,rentMid:2350,rentHigh:2500,rentNote:"Same $2,200–$2,500 area-comp band used for #1526. Hotel-program income can differ, and long-term leasing may be limited.",hotel:true,appr:0.0284,apprNote:"This unit sold for $310,000 on Jun 30, 2016. The 2.8% yearly figure is the thin same-plan 1-bed estimate, not this asking price."},
+  {mls:"202616078",section:"rec",unit:"#1907",building:"Kapiolani Manor",name:"Kapiolani Manor #1907",addr:"1655 Makaloa St #1907, Honolulu, HI 96814",href:"https://hicentral.com/202616078",status:"Active",statusNote:"HiCentral Matrix showed Active at $274,900 on Nov 21, 2026 (Hawaii time).",price:274900,beds:1,baths:1,sf:484,view:"City, Diamond Head, Mountain, Ocean",ocean:true,hoa:905,tax:104,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1970,remodeled:"2025",condition:"Above Average",rentLow:1800,rentMid:2000,rentHigh:2300,rentNote:"Kapiolani Manor 1-bed leases in the Oct 28, 2026 Matrix pull: last 12 months n=10, median about $1,975, range $1,800–$2,300. Midpoint used: $2,000.",hotel:false,appr:-0.0187,apprNote:"Assumption from a thin public sample, not a HiCentral building median: #909 sold for $320,000 on Mar 11, 2016; 2026 public 1-bed solds clustered around $240,000–$270,000 (midpoint $265,000). About −1.9% per year."},
+  {mls:"202611854",section:"rec",unit:"#909",building:"Kapiolani Manor",name:"Kapiolani Manor #909",addr:"1655 Makaloa St #909, Honolulu, HI 96814",href:"https://hicentral.com/202611854",status:"Active",statusNote:"HiCentral Matrix showed Active at $300,000 on Nov 21, 2026 (Hawaii time).",price:300000,beds:1,baths:1,sf:484,view:"City, Diamond Head, Mountain, Ocean",ocean:true,hoa:905,tax:97,parking:"Covered (1), secured entry",tenure:"Fee simple",yearBuilt:1970,condition:"Average",rentLow:1800,rentMid:2000,rentHigh:2300,rentNote:"Same Kapiolani Manor 1-bed lease band: $1,800–$2,300, midpoint $2,000.",hotel:false,appr:-0.0187,apprNote:"This unit sold for $320,000 on Mar 11, 2016. The −1.9% yearly figure is the thin building sample, not this asking price."},
+  {mls:"202619447",section:"rec",unit:"#2407",building:"Kapiolani Manor",name:"Kapiolani Manor #2407",addr:"1655 Makaloa St #2407, Honolulu, HI 96814",href:"https://hicentral.com/202619447",status:"Cancelled",statusNote:"HiCentral Matrix showed Cancelled on Nov 21, 2026 (Hawaii time). The list price on that pull was $299,000. No cancel date was shown.",price:299000,beds:1,baths:1,sf:484,view:"Marina/Canal, Ocean",ocean:true,hoa:1000,tax:94,parking:"Covered (1)",tenure:"Fee simple",yearBuilt:1970,remodeled:"2021",condition:"Above Average",rentLow:1800,rentMid:2000,rentHigh:2300,rentNote:"Same Kapiolani Manor 1-bed lease band: $1,800–$2,300, midpoint $2,000.",hotel:false,appr:-0.0187,apprNote:"Same thin Kapiolani Manor 1-bed sample used for other Manor units on this page (about −1.9% per year)."},
+  {mls:"202526055",section:"rec",unit:"#1616",building:"Kapiolani Manor",name:"Kapiolani Manor #1616",addr:"1655 Makaloa St #1616, Honolulu, HI 96814",href:"https://hicentral.com/202526055",status:"Active",statusNote:"HiCentral Matrix showed Active at $349,000 on Nov 21, 2026 (Hawaii time).",price:349000,beds:1,baths:1,sf:484,view:"City",ocean:false,hoa:905,tax:104,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1970,remodeled:"2022",condition:"Above Average",rentLow:1800,rentMid:2000,rentHigh:2300,rentNote:"Same Kapiolani Manor 1-bed lease band: $1,800–$2,300, midpoint $2,000.",hotel:false,appr:-0.0187,apprNote:"Same thin Kapiolani Manor 1-bed sample used for other Manor units on this page (about −1.9% per year)."},
+  {mls:"202619237",section:"rec",unit:"#1006",building:"Summer Palace",name:"Summer Palace #1006",addr:"1848 Kahakai Dr #1006, Honolulu, HI 96814",href:"https://hicentral.com/202619237",status:"Active",statusNote:"HiCentral Matrix showed Active at $370,000 on Nov 21, 2026 (Hawaii time).",price:370000,beds:1,baths:1,sf:542,view:"City, Marina/Canal, Ocean, Sunrise",ocean:true,hoa:1081,tax:102,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1976,condition:"Excellent",rentLow:2200,rentMid:2300,rentHigh:2400,rentNote:"Summer Palace and 1848 Kahakai 1-beds of similar size in the Matrix pull leased around $2,200–$2,400 in 2025–2026. Midpoint used: $2,300.",hotel:false,appr:0.0249,apprNote:"Assumption, not a building median: Honolulu County condo median $390,000 in 2016 (Hawaii DBEDT Data Book) vs Oahu condo median $499,000 in October 2026 (Honolulu Board of REALTORS Monthly Statistical Report). About 2.5% per year."},
+  {mls:"202619890",section:"rec",unit:"#1603",building:"Summer Palace",name:"Summer Palace #1603",addr:"1848 Kahakai Dr #1603, Honolulu, HI 96814",href:"https://hicentral.com/202619890",status:"Active",statusNote:"HiCentral Matrix showed Active at $370,000 on Nov 21, 2026 (Hawaii time).",price:370000,beds:1,baths:1,sf:547,view:"City, Marina/Canal, Mountain, Ocean, Sunrise",ocean:true,hoa:1096,tax:104,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1976,remodeled:"2020",condition:"Above Average",rentLow:2200,rentMid:2300,rentHigh:2400,rentNote:"Same Summer Palace similar-size lease band: $2,200–$2,400, midpoint $2,300.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Summer Palace and Atkinson Plaza units on this page (about 2.5% per year)."},
+  {mls:"202608596",section:"rec",unit:"#2006",building:"Summer Palace",name:"Summer Palace #2006",addr:"1848 Kahakai Dr #2006, Honolulu, HI 96814",href:"https://hicentral.com/202608596",status:"Active",statusNote:"HiCentral Matrix showed Active at $330,000 on Nov 21, 2026 (Hawaii time).",price:330000,beds:1,baths:1,sf:542,view:"Marina/Canal",ocean:false,hoa:1087,tax:142,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1976,condition:"Average",rentLow:2200,rentMid:2300,rentHigh:2400,rentNote:"Same Summer Palace similar-size lease band: $2,200–$2,400, midpoint $2,300. Public remarks mention a tenant through the end of April 2027; the current lease amount is not in the source data, so market rent is used.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Summer Palace units on this page (about 2.5% per year).",extra:"Public remarks state a tenant is in place through the end of April 2027."},
+  {mls:"202618745",section:"rec",unit:"#708",building:"Summer Palace",name:"Summer Palace #708",addr:"1848 Kahakai Dr #708, Honolulu, HI 96814",href:"https://hicentral.com/202618745",status:"Active",statusNote:"HiCentral Matrix showed Active at $355,000 on Nov 21, 2026 (Hawaii time).",price:355000,beds:1,baths:1,sf:554,view:"Garden, Marina/Canal",ocean:false,hoa:1109,tax:143,parking:"Assigned, open (1)",tenure:"Fee simple",yearBuilt:1976,condition:"Above Average",rentLow:2200,rentMid:2300,rentHigh:2400,rentNote:"Same Summer Palace similar-size lease band: $2,200–$2,400, midpoint $2,300.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Summer Palace units on this page (about 2.5% per year)."},
+  {mls:"202607633",section:"rec",unit:"#1604",building:"Atkinson Plaza",name:"Atkinson Plaza #1604",addr:"475 Atkinson Dr #1604, Honolulu, HI 96814",href:"https://hicentral.com/202607633",status:"Active",statusNote:"HiCentral Matrix showed Active at $420,000 on Nov 21, 2026 (Hawaii time).",price:420000,beds:1,baths:1,sf:583,view:"City, Ocean",ocean:true,hoa:1293,tax:113,parking:"Assigned, covered (1)",tenure:"Fee simple",yearBuilt:1979,condition:"Excellent",rentLow:2400,rentMid:2500,rentHigh:2600,rentNote:"Atkinson Plaza / 475 Atkinson 1-bed leases in the Matrix pull were $2,400–$2,600 in 2026 (about 550–587 sq ft). Midpoint used: $2,500.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Atkinson Plaza and Summer Palace units on this page (about 2.5% per year)."},
+  {mls:"202605328",section:"rec",unit:"#1006",building:"Atkinson Plaza",name:"Atkinson Plaza #1006",addr:"475 Atkinson Dr #1006, Honolulu, HI 96814",href:"https://hicentral.com/202605328",status:"Active",statusNote:"HiCentral Matrix showed Active at $288,000 on Nov 21, 2026 (Hawaii time).",price:288000,beds:1,baths:1,sf:768,view:"City, Marina/Canal, Ocean",ocean:true,hoa:1665,tax:124,parking:"Assigned, covered (1) and open (1)",tenure:"Fee simple",yearBuilt:1979,condition:"Above Average",rentLow:2400,rentMid:2500,rentHigh:2600,rentNote:"This unit is larger than the 550–587 sq ft Atkinson Plaza 1-bed leases ($2,400–$2,600). The same band is used and may be conservative. A higher rent is not assumed because no 768 sq ft lease was in the pull.",hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other Atkinson Plaza units on this page (about 2.5% per year)."},
+  {mls:"202528190",section:"str",unit:"#1105",building:"Tradewinds Plaza",name:"Tradewinds Plaza #1105",addr:"2572 Lemon Rd #1105, Honolulu, HI 96815",href:"https://hicentral.com/202528190",status:"Active",statusNote:"HiCentral Matrix showed Active at $355,000 on Nov 21, 2026 (Hawaii time).",price:355000,beds:0,baths:1,sf:266,floor:"11",view:"Coastline, Ocean",ocean:true,hoa:450,tax:107,parking:"None",tenure:"Fee simple",yearBuilt:1979,furnished:"Full",zoning:"X6 Resort Mixed Use Precinct",strQuote:"legally permitted short-term rental... Currently operating as a popular Airbnb",dom:335,str:true,hotel:false,appr:0.0249,apprNote:"Fee-simple assumption, not a building median: the same Oahu condo-median figure used for Summer Palace and Atkinson Plaza on this page, about 2.5% per year, from the Honolulu County condo median of $390,000 in 2016 (Hawaii DBEDT Data Book) versus the Oahu condo median of $499,000 in October 2026 (Honolulu Board of REALTORS Monthly Statistical Report)."},
+  {mls:"202609594",section:"str",unit:"#917",building:"Waikiki Grand Hotel",name:"Waikiki Grand #917",addr:"134 Kapahulu Ave #917, Honolulu, HI 96815",href:"https://hicentral.com/202609594",status:"Active",statusNote:"HiCentral Matrix showed Active at $320,000 on Nov 21, 2026 (Hawaii time).",price:320000,beds:0,baths:1,sf:236,floor:"9",view:"City, Diamond Head",ocean:false,hoa:815,tax:428,parking:"None",tenure:"Fee simple",yearBuilt:1963,furnished:"Full",zoning:"X6 Resort Mixed Use Precinct",strQuote:"legal short-term rental studio... turnkey Airbnb averaging $30,000/year gross income",sellerGross:30000,dom:190,str:true,hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other fee-simple homes without a building-level 10-year sample on this page (about 2.5% per year)."},
+  {mls:"202612122",section:"str",unit:"#609",building:"Luana Waikiki",name:"Luana Waikiki #609",addr:"2045 Kalakaua Ave #609, Honolulu, HI 96815",href:"https://hicentral.com/202612122",status:"Active",statusNote:"HiCentral Matrix showed Active at $385,000 on Nov 21, 2026 (Hawaii time).",price:385000,beds:0,baths:1,sf:313,floor:"6",view:"Ocean, Sunrise",ocean:true,hoa:962,tax:433,parking:"Guest, None",tenure:"Fee simple",yearBuilt:1971,furnished:"Partial",zoning:"X6 Resort Mixed Use Precinct",strQuote:"Continue participating in the hotel rental program or self-manage",dom:139,str:true,hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other fee-simple homes without a building-level 10-year sample on this page (about 2.5% per year)."},
+  {mls:"202600703",section:"str",unit:"#810",building:"Kuhio Village 1",name:"Kuhio Village 1 #810",addr:"2463 Kuhio Ave #810, Honolulu, HI 96815",href:"https://hicentral.com/202600703",status:"Active",statusNote:"HiCentral Matrix showed Active at $280,000 on Nov 21, 2026 (Hawaii time).",price:280000,beds:0,baths:1,sf:206,floor:"8",view:"City, Golf Course, Marina/Canal, Mountain",ocean:false,hoa:739,tax:232,parking:"None",tenure:"Fee simple",yearBuilt:1975,furnished:"Full",zoning:"X6 Resort Mixed Use Precinct",strQuote:"currently operating as a short-term rental... zoned for legal short-term rentals",dom:313,str:true,hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other fee-simple homes without a building-level 10-year sample on this page (about 2.5% per year)."},
+  {mls:"202620185",section:"str",unit:"#905",building:"Kuhio Village 1",name:"Kuhio Village 1 #905",addr:"2463 Kuhio Ave #905, Honolulu, HI 96815",href:"https://hicentral.com/202620185",status:"Active",statusNote:"HiCentral Matrix showed Active at $275,000 on Nov 21, 2026 (Hawaii time).",price:275000,beds:0,baths:1,sf:255,floor:"9",view:"Ocean",ocean:true,hoa:1283,tax:78,parking:"Garage",tenure:"Fee simple",yearBuilt:1975,furnished:"Full",zoning:"X6 Resort Mixed Use Precinct",strQuote:"Legal short-term rental opportunity... fully furnished",dom:22,str:true,hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other fee-simple homes without a building-level 10-year sample on this page (about 2.5% per year)."},
+  {mls:"202614227",section:"str",unit:"#907",building:"Waikiki Grand Hotel",name:"Waikiki Grand #907",addr:"134 Kapahulu Ave #907, Honolulu, HI 96815",href:"https://hicentral.com/202614227",status:"Active",statusNote:"HiCentral Matrix showed Active at $260,000 on Nov 21, 2026 (Hawaii time).",price:260000,beds:0,baths:1,sf:195,floor:"10",view:"City, Diamond Head, Ocean",ocean:true,hoa:673,tax:323,parking:"None",tenure:"Fee simple",yearBuilt:1963,furnished:"",zoning:"X6 Resort Mixed Use Precinct",strQuote:"",dom:121,str:true,hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other fee-simple homes without a building-level 10-year sample on this page (about 2.5% per year)."},
+  {mls:"202616549",section:"str",unit:"#1018",building:"Trump Tower Waikiki",name:"Trump Tower Waikiki #1018",addr:"223 Saratoga Rd #1018, Honolulu, HI 96815",href:"https://hicentral.com/202616549",status:"Active",statusNote:"HiCentral Matrix showed Active at $379,000 on Nov 21, 2026 (Hawaii time).",price:379000,beds:0,baths:1,sf:355,floor:"10",view:"City, Ocean",ocean:true,hoa:792,tax:95,parking:"Guest",tenure:"Fee simple",yearBuilt:2009,furnished:"Full",zoning:"X6 Resort Mixed Use Precinct",strQuote:"vacation retreat, second home, or investment opportunity",strQuote2:"five-star luxury hotel",dom:82,str:true,hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other fee-simple homes without a building-level 10-year sample on this page (about 2.5% per year)."},
+  {mls:"202616403",section:"str",unit:"#1204",building:"Luana Waikiki",name:"Luana Waikiki #1204",addr:"2045 Kalakaua Ave #1204, Honolulu, HI 96815",href:"https://hicentral.com/202616403",status:"Active",statusNote:"HiCentral Matrix showed Active at $345,000 on Nov 21, 2026 (Hawaii time).",price:345000,beds:0,baths:1,sf:307,floor:"12",view:"City, Garden, Mountain, Ocean, Sunset",ocean:true,hoa:963,tax:435,parking:"None",tenure:"Fee simple",yearBuilt:1971,furnished:"Full",occupant:"Hotel Rental Pool",zoning:"X6 Resort Mixed Use Precinct",strQuote:"",dom:78,str:true,hotel:false,appr:0.0249,apprNote:"Same Oahu condo-median assumption used for other fee-simple homes without a building-level 10-year sample on this page (about 2.5% per year)."}
 ];
 
 const $ = id => document.getElementById(id);
@@ -284,10 +304,25 @@ function pickRent(x, band){ return band==="low"?x.rentLow:band==="high"?x.rentHi
 function parseRate(){ const n=Number($("fRate").value); return Number.isFinite(n)&&n>=0&&n<30?n:DEFAULT_RATE; }
 function parseDown(){ const n=Number($("fDown").value); if(!Number.isFinite(n)) return 0.2; return n>1?Math.min(n,100)/100:Math.min(Math.max(n,0),1); }
 function analyze(x, rate, downPct, band){
-  const rent=pickRent(x,band);
   const down=x.price*Math.min(Math.max(downPct,0),1);
   const loan=x.price-down;
   const pi=pmt(loan, rate/100);
+  if(x.str){
+    const rent=STR_GROSS/12, gpi=STR_GROSS, egi=STR_GROSS;
+    const getTax=egi*STR_GET, tatTax=egi*STR_TAT, otatTax=egi*STR_OTAT;
+    const lodgingTax=getTax+tatTax+otatTax;
+    const opex=lodgingTax+(STR_CLEAN+STR_UTIL+x.hoa+x.tax+STR_INS)*12;
+    const noi=egi-opex;
+    const cap=x.price>0?noi/x.price:0;
+    const cfMo=noi/12-pi;
+    const coc=down>0?(cfMo*12)/down:cap;
+    const grm=gpi>0?x.price/gpi:0;
+    const exp=gpi>0?opex/gpi:0;
+    const tot=cap+x.appr;
+    const carry=pi+x.hoa+x.tax+STR_INS+STR_CLEAN+STR_UTIL+lodgingTax/12;
+    return {rent,down,loan,pi,gpi,egi,opex,noi,cap,cfMo,coc,grm,exp,tot,carry,getTax,tatTax,otatTax,lodgingTax,insMo:STR_INS,str:true};
+  }
+  const rent=pickRent(x,band);
   const gpi=rent*12, egi=gpi*(1-VAC);
   const opex=(x.hoa+x.tax+INS)*12;
   const noi=egi-opex;
@@ -298,7 +333,7 @@ function analyze(x, rate, downPct, band){
   const exp=gpi>0?opex/gpi:0;
   const tot=cap+x.appr;
   const carry=pi+x.hoa+x.tax+INS;
-  return {rent,down,loan,pi,gpi,egi,opex,noi,cap,cfMo,coc,grm,exp,tot,carry};
+  return {rent,down,loan,pi,gpi,egi,opex,noi,cap,cfMo,coc,grm,exp,tot,carry,insMo:INS,str:false};
 }
 function norm(vals, invert, v){
   const lo=Math.min(...vals), hi=Math.max(...vals);
@@ -307,18 +342,22 @@ function norm(vals, invert, v){
   return invert?1-n:n;
 }
 function scoreAll(rate, downPct, band){
-  const raw=D.map(x=>({x,m:analyze(x,rate,downPct,band)}));
+  const pool=D.filter(x=>x.status!=="Cancelled");
+  const raw=pool.map(x=>({x,m:analyze(x,rate,downPct,band)}));
   const caps=raw.map(r=>r.m.cap), tots=raw.map(r=>r.m.tot), cfs=raw.map(r=>r.m.cfMo);
-  const grms=raw.map(r=>r.m.grm), exps=raw.map(r=>r.m.exp), apprs=D.map(x=>x.appr), prices=D.map(x=>x.price);
+  const grms=raw.map(r=>r.m.grm), exps=raw.map(r=>r.m.exp), apprs=raw.map(r=>r.x.appr), prices=raw.map(r=>r.x.price);
   const out={};
   for(const row of raw){
     const s=0.35*norm(caps,false,row.m.cap)+0.2*norm(tots,false,row.m.tot)+0.1*norm(cfs,false,row.m.cfMo)+0.1*norm(grms,true,row.m.grm)+0.1*norm(exps,true,row.m.exp)+0.1*norm(apprs,false,row.x.appr)+0.05*norm(prices,true,row.x.price);
     out[row.x.mls]={...row.m,score:Math.round(s*100)};
   }
+  for(const x of D){
+    if(!out[x.mls]) out[x.mls]={...analyze(x,rate,downPct,band),score:null};
+  }
   return out;
 }
 
-const CATS=[["all","All"],["comp","Comparable to #1526"],["rec","Recommended nearby"]];
+const CATS=[["all","All"],["comp","Comparable to #1526"],["rec","Recommended nearby"],["str","Waikiki short-term"]];
 let catOn="all";
 const sel=new Set();
 let general=false, lastMailto="";
@@ -342,7 +381,7 @@ document.querySelectorAll(".filters input").forEach(el=>el.addEventListener("inp
 
 function sortList(list, M, so){
   const k={
-    score:x=>-M[x.mls].score,
+    score:x=>-(M[x.mls].score??-1),
     ret:x=>-M[x.mls].cap,
     tot:x=>-M[x.mls].tot,
     cf:x=>-M[x.mls].cfMo,
@@ -352,24 +391,40 @@ function sortList(list, M, so){
     pd:x=>-x.price,
     hoa:x=>x.hoa
   }[so];
-  return [...list].sort((a,b)=>k(a)-k(b)||M[b.mls].cap-M[a.mls].cap||a.price-b.price);
+  const active=list.filter(x=>x.status!=="Cancelled");
+  const cancelled=list.filter(x=>x.status==="Cancelled");
+  active.sort((a,b)=>k(a)-k(b)||M[b.mls].cap-M[a.mls].cap||a.price-b.price);
+  return active.concat(cancelled);
 }
-function tagFor(x){ return x.isSubject?"Reference home":x.section==="comp"?"Comparable to #1526":"Recommended nearby"; }
+function tagFor(x){
+  if(x.isSubject) return "Reference home";
+  if(x.section==="comp") return "Comparable to #1526";
+  if(x.section==="str") return "Waikiki short-term";
+  return "Recommended nearby";
+}
+function bedLabel(x){ return x.beds===0?"Studio":x.beds+" bd"; }
 
 function card(x, M, rank, cash, downPct){
   const m=M[x.mls];
+  const cancelled=x.status==="Cancelled";
   const ret=cash?m.cap:m.coc;
   const cf=cash?m.noi/12:m.cfMo;
   const retLbl=cash?"Cash Return (Cap Rate)":"Cash-on-cash";
-  const bd=x.beds+" bd";
   const photo=`photos/${x.mls}.jpg`;
   const badge=x.isSubject?'<span class="lux">Reference</span>':(x.ocean?'<span class="lux">Ocean view</span>':"");
   const negR=ret<0, negC=cf<0;
-  return `<div class="card${sel.has(x.mls)?" sel":""}" data-mls="${x.mls}">
-    <div class="ph" style="background-image:url('${photo}')"><span class="rk">No. ${rank} · Score ${m.score}</span>${badge}</div>
+  const rankHtml=cancelled?'<span class="rk stop">Cancelled</span>':`<span class="rk">No. ${rank} · Score ${m.score}</span>`;
+  const rentLine=x.str
+    ? `<span>Gross ${money(m.gpi)}/yr · Studio estimate ${money(m.rent)}/mo <span class="tag m">Public studio average</span></span>`
+    : `<span>Gross ${money(m.gpi)}/yr · Est. rent ${money(m.rent)}/mo <span class="tag${x.hotel?" m":""}">${x.hotel?"Area rent comps":"Building lease comps"}</span></span>`;
+  const seller=x.sellerGross?`<div class="quote"><b>Seller's stated figure:</b> ${money(x.sellerGross)}/yr gross. The score uses the public studio estimate.</div>`:"";
+  const quote=x.strQuote?`<div class="quote"><b>Matrix:</b> “${x.strQuote}”${x.strQuote2?` “${x.strQuote2}”`:""}</div>`:(x.str?`<div class="quote"><b>Matrix:</b> ${x.occupant?"Occupant type is "+x.occupant+". ":""}Remarks in this pull do not add a short-term rental sentence. Zoning is X6 Resort Mixed Use Precinct.</div>`:"");
+  const zone=x.str?`<div class="mini"><span class="tag">${x.zoning}</span><span>${x.tenure}</span></div>`:"";
+  return `<div class="card${cancelled?" cancelled":""}${sel.has(x.mls)?" sel":""}" data-mls="${x.mls}">
+    <div class="ph" style="background-image:url('${photo}')">${rankHtml}${badge}</div>
     <div class="bd">
       <div><div class="nm">${x.name}</div><div class="ad">${x.addr} · MLS ${x.mls} · ${x.status}</div></div>
-      <div class="pr">${money(x.price)}<small>${bd}${x.baths?" · "+x.baths+" ba":""} · ${x.sf.toLocaleString()} sf${x.lanai?" + "+x.lanai+" lanai":""}${x.floor?" · Fl. "+x.floor:""}</small></div>
+      <div class="pr">${money(x.price)}<small>${bedLabel(x)}${x.baths?" · "+x.baths+" ba":""} · ${x.sf.toLocaleString()} sf${x.lanai?" + "+x.lanai+" lanai":""}${x.floor?" · Fl. "+x.floor:""}</small></div>
       <div class="kp">
         <div class="k main${negR?" neg":""}" style="grid-column:1/-1"><span>${retLbl}</span><b>${pc(ret)}</b></div>
         <div class="k${negC?" neg":""}"><span>Net cash flow / mo</span><b>${money(cf)}</b></div>
@@ -383,9 +438,12 @@ function card(x, M, rank, cash, downPct){
         <span>Tax ${money(x.tax)}/mo</span>
       </div>
       <div class="mini">
-        <span>Gross ${money(m.gpi)}/yr · Est. rent ${money(m.rent)}/mo <span class="tag${x.hotel?" m":""}">${x.hotel?"Area rent comps":"Building lease comps"}</span></span>
-        <span>Fee simple · ${tagFor(x)}</span>
+        ${rentLine}
+        <span>${x.tenure} · ${tagFor(x)}</span>
       </div>
+      ${zone}
+      ${quote}
+      ${seller}
       <label class="pick"><input type="checkbox" data-mls="${x.mls}" ${sel.has(x.mls)?"checked":""}> Request net sheet for this home</label>
       <div class="act">
         <a class="btn dark" href="${x.href}" target="_blank" rel="noopener">View listing</a>
@@ -403,21 +461,25 @@ function render(){
   const M=scoreAll(rate, downPct, band);
   let L=D.filter(x=>(catOn==="all"||x.section===catOn)&&x.hoa<=hoa&&(!ocean||x.ocean));
   L=sortList(L,M,so);
-  const best=Math.max(...D.map(x=>M[x.mls].cap));
+  const activeAll=D.filter(x=>x.status!=="Cancelled");
+  const best=Math.max(...activeAll.map(x=>M[x.mls].cap));
+  const shownCancelled=L.filter(x=>x.status==="Cancelled").length;
   $("stats").innerHTML=`
     <div class="stat"><b>3</b><span>comparable 1-beds at Ala Moana Hotel</span></div>
-    <div class="stat"><b>10</b><span>recommended nearby 1-beds</span></div>
-    <div class="stat"><b>${pc(best)}</b><span>best cash return on this page</span></div>`;
-  $("count").textContent=`Showing ${L.length} of ${D.length} fee simple 1-bedrooms in Claudia's $230,000–$450,000 budget`;
-  $("grid").innerHTML=L.map((x,i)=>card(x,M,i+1,cash,downPct)).join("")||"<p>No homes match. Try widening a filter.</p>";
+    <div class="stat"><b>9</b><span>active recommended nearby 1-beds</span></div>
+    <div class="stat"><b>8</b><span>fee-simple Waikiki short-term studios</span></div>
+    <div class="stat"><b>${pc(best)}</b><span>best cash return on active homes</span></div>`;
+  $("count").textContent=`Showing ${L.length} of ${D.length} fee-simple homes`+(shownCancelled?`. ${shownCancelled===1?"Kapiolani Manor #2407 is Cancelled and is not scored.":shownCancelled+" cancelled listings are not scored."}`:".");
+  let n=0;
+  $("grid").innerHTML=L.map(x=>card(x,M,x.status==="Cancelled"?null:++n,cash,downPct)).join("")||"<p>No homes match. Try widening a filter.</p>";
   // comparison table of visible list
   const downLbl=Math.round(downPct*100)+"% down";
   const head=["Score","Home","Price","HOA + tax","View","Est. rent","Cap rate",downLbl+" CF / mo","Cash-on-cash","Est. total return","MLS"];
   const rows=L.map(x=>{
     const m=M[x.mls];
     return `<tr>
-      <td class="amt">${m.score}</td>
-      <td>${x.name}${x.isSubject?" (reference)":""}</td>
+      <td class="amt">${x.status==="Cancelled"?"Cancelled":m.score}</td>
+      <td>${x.name}${x.isSubject?" (reference)":""}${x.status==="Cancelled"?" (cancelled)":""}</td>
       <td class="amt">${money(x.price)}</td>
       <td class="amt">${money(x.hoa+x.tax)}/mo</td>
       <td>${x.view.split("(")[0].trim()}</td>
@@ -507,22 +569,67 @@ function openNums(mls){
         </tbody>
       </table>`;
   }
-  $("numsTitle").textContent="Full numbers · "+x.name;
-  $("numsBody").innerHTML=`
-    <p class="fine">${x.addr} · MLS ${x.mls} · ${x.status}. Investor Score ${m.score}. <a href="${x.href}" target="_blank" rel="noopener">View listing</a>. ${x.statusNote}</p>
-    ${vs}
-    <div class="cols">
-    <div>
-    <h4>${downLbl} with a mortgage</h4>
-    <p class="fine">${inp.rate.toFixed(2)}% 30-year fixed, from Filters (default is Freddie Mac PMMS 7.11% as of Nov 12, 2026). Principal and interest only in the P&amp;I line.</p>
-    <table>
-      <thead><tr><th>Item</th><th>Amount</th></tr></thead>
-      <tbody>
-        <tr><td>Down payment</td><td class="amt">${money(m.down)}</td></tr>
+  const scoreTxt=x.status==="Cancelled"?"Not included in the Investor Score.":"Investor Score "+m.score+".";
+  const mortgageHead=`<h4>${downLbl} with a mortgage</h4>
+    <p class="fine">${inp.rate.toFixed(2)}% 30-year fixed, from Filters (default is Freddie Mac PMMS 7.11% as of Nov 12, 2026). Principal and interest only in the P&amp;I line.</p>`;
+  const mortgageCommon=`<tr><td>Down payment</td><td class="amt">${money(m.down)}</td></tr>
         <tr><td>Loan amount</td><td class="amt">${money(m.loan)}</td></tr>
         <tr><td>P&amp;I / mo</td><td class="amt">${money(m.pi)}</td></tr>
         <tr><td>HOA / mo</td><td class="amt">${money(x.hoa)}</td></tr>
-        <tr><td>Property tax / mo</td><td class="amt">${money(x.tax)}</td></tr>
+        <tr><td>Property tax / mo</td><td class="amt">${money(x.tax)}</td></tr>`;
+  const cashCommonEnd=`<tr><td>Cap rate / cash return</td><td class="amt">${pc(m.cap,2)}</td></tr>
+        <tr><td>Gross rent multiplier</td><td class="amt">${m.grm.toFixed(1)}</td></tr>
+        <tr><td>Expense ratio</td><td class="amt">${pc(m.exp,0)}</td></tr>
+        <tr><td>10-year appreciation (estimate)</td><td class="amt">${pc(x.appr,1)} / year</td></tr>
+        <tr><td>Estimated total return</td><td class="amt">${pc(m.tot,2)}</td></tr>`;
+  const cols=x.str?`
+    <div class="cols">
+    <div>
+    ${mortgageHead}
+    <table>
+      <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+      <tbody>
+        ${mortgageCommon}
+        <tr><td>Insurance / mo (assumption)</td><td class="amt">${money(STR_INS)}</td></tr>
+        <tr><td>GET 4.712% / mo</td><td class="amt">${money(m.getTax/12)}</td></tr>
+        <tr><td>State TAT 10.25% / mo</td><td class="amt">${money(m.tatTax/12)}</td></tr>
+        <tr><td>Oahu TAT 3% / mo</td><td class="amt">${money(m.otatTax/12)}</td></tr>
+        <tr><td>Cleaning and supplies / mo (assumption)</td><td class="amt">${money(STR_CLEAN)}</td></tr>
+        <tr><td>Utilities and internet / mo (assumption)</td><td class="amt">${money(STR_UTIL)}</td></tr>
+        <tr><td>Total monthly cost</td><td class="amt">${money(m.carry)}</td></tr>
+        <tr><td>Studio gross / mo</td><td class="amt">${money(m.rent)}</td></tr>
+        <tr><td>Monthly cash flow</td><td class="amt">${money(m.cfMo)}</td></tr>
+        <tr><td>Cash-on-cash (annual cash flow ÷ down payment)</td><td class="amt">${pc(m.coc,1)}</td></tr>
+      </tbody>
+    </table>
+    </div><div>
+    <h4>All cash</h4>
+    <p class="fine">Cash in is the asking price only. Closing costs are not included. Yearly gross is the published studio average. Vacancy is already in that figure.</p>
+    <table>
+      <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Total cash in (asking price)</td><td class="amt">${money(x.price)}</td></tr>
+        <tr><td>Studio gross / year</td><td class="amt">${money(m.gpi)}</td></tr>
+        ${x.sellerGross?`<tr><td>Seller's stated figure / year</td><td class="amt">${money(x.sellerGross)}</td></tr>`:""}
+        <tr><td>GET 4.712%</td><td class="amt">${money(m.getTax)}</td></tr>
+        <tr><td>State TAT 10.25%</td><td class="amt">${money(m.tatTax)}</td></tr>
+        <tr><td>Oahu TAT 3%</td><td class="amt">${money(m.otatTax)}</td></tr>
+        <tr><td>Cleaning and supplies / year (assumption)</td><td class="amt">${money(STR_CLEAN*12)}</td></tr>
+        <tr><td>Utilities and internet / year (assumption)</td><td class="amt">${money(STR_UTIL*12)}</td></tr>
+        <tr><td>HOA, tax, and insurance / year</td><td class="amt">${money((x.hoa+x.tax+STR_INS)*12)}</td></tr>
+        <tr><td>Operating expenses / year</td><td class="amt">${money(m.opex)}</td></tr>
+        <tr><td>Net operating income (NOI)</td><td class="amt">${money(m.noi)}</td></tr>
+        ${cashCommonEnd}
+      </tbody>
+    </table>
+    </div></div>`:`
+    <div class="cols">
+    <div>
+    ${mortgageHead}
+    <table>
+      <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+      <tbody>
+        ${mortgageCommon}
         <tr><td>Insurance / mo (assumption)</td><td class="amt">${money(INS)}</td></tr>
         <tr><td>Total monthly cost (before vacancy)</td><td class="amt">${money(m.carry)}</td></tr>
         <tr><td>Estimated rent / mo</td><td class="amt">${money(m.rent)}</td></tr>
@@ -542,16 +649,18 @@ function openNums(mls){
         <tr><td>Effective gross income (after 5% vacancy)</td><td class="amt">${money(m.egi)}</td></tr>
         <tr><td>Operating expenses / year</td><td class="amt">${money(m.opex)}</td></tr>
         <tr><td>Net operating income (NOI)</td><td class="amt">${money(m.noi)}</td></tr>
-        <tr><td>Cap rate / cash return</td><td class="amt">${pc(m.cap,2)}</td></tr>
         <tr><td>Annual net (NOI)</td><td class="amt">${money(m.noi)}</td></tr>
-        <tr><td>Gross rent multiplier</td><td class="amt">${m.grm.toFixed(1)}</td></tr>
-        <tr><td>Expense ratio</td><td class="amt">${pc(m.exp,0)}</td></tr>
-        <tr><td>10-year appreciation (estimate)</td><td class="amt">${pc(x.appr,1)} / year</td></tr>
-        <tr><td>Estimated total return</td><td class="amt">${pc(m.tot,2)}</td></tr>
+        ${cashCommonEnd}
       </tbody>
     </table>
-    </div></div>
-    <p class="fine">${x.beds} bed, ${x.baths} bath, built ${x.yearBuilt}${x.remodeled?", remodeled "+x.remodeled:""}. Condition: ${x.condition}.${x.furnished?" "+x.furnished+" furnished.":""} View: ${x.view}. Parking: ${x.parking}.${x.occupant?" Occupancy: "+x.occupant+".":""} ${x.tenure}. Rent: ${x.rentNote} Appreciation: ${x.apprNote}${x.extra?" "+x.extra:""}</p>`;
+    </div></div>`;
+  const detail=`${bedLabel(x)}, ${x.baths} bath, built ${x.yearBuilt}${x.remodeled?", remodeled "+x.remodeled:""}.${x.condition?" Condition: "+x.condition+".":""}${x.furnished?" "+x.furnished+" furnished.":""} View: ${x.view}. Parking: ${x.parking}.${x.occupant?" Occupancy: "+x.occupant+".":""} ${x.tenure}.${x.zoning?" Zoning: "+x.zoning+".":""}${x.dom?" Matrix days on market: "+x.dom+".":""}${x.rentNote?" Rent: "+x.rentNote:""} Appreciation: ${x.apprNote}${x.extra?" "+x.extra:""}`;
+  $("numsTitle").textContent="Full numbers · "+x.name;
+  $("numsBody").innerHTML=`
+    <p class="fine">${x.addr} · MLS ${x.mls} · ${x.status}. ${scoreTxt} <a href="${x.href}" target="_blank" rel="noopener">View listing</a>. ${x.statusNote}</p>
+    ${vs}
+    ${cols}
+    <p class="fine">${detail}</p>`;
   document.body.classList.add("sheet-open"); $("numsModal").classList.add("on");
 }
 document.addEventListener("keydown", e=>{
